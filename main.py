@@ -7,29 +7,21 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 import io
-from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(title="Brain Tumor Classifier")
+
+# ✅ Specific frontend origin allowed
 origins = [
     "https://neuro-scan-predict-ui.lovable.app",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # ✅ Exact frontend origin
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-# Allow all CORS (use specific origins in production)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
 # Constants
 GDRIVE_FILE_ID = "1aEc1Ni1mds5anu28giaiXkcM9_OOxV2y"
 MODEL_PATH = "best_model.keras"

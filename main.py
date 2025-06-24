@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import gdown
@@ -77,8 +77,6 @@ def root():
     }
 
 # Predict route
-@app.post("/api/predict")
-from fastapi import Request
 
 @app.post("/api/predict")
 async def predict(request: Request, image: UploadFile = File(...)):

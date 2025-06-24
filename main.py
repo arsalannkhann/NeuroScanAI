@@ -67,8 +67,9 @@ def get_prediction(image: Image.Image):
 
 # Load the model at startup
 load_ml_model()
-
-@app.get("/", response_class=HTMLResponse)
+@app.get("/")
+def root():
+    return {"message": "API is live"}
 async def home():
     return """
     <h2>Brain Tumor Detection API</h2>

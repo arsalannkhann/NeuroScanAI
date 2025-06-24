@@ -78,7 +78,11 @@ def root():
 
 # Predict route
 @app.post("/api/predict")
-async def predict(image: UploadFile = File(...)):
+from fastapi import Request
+
+@app.post("/api/predict")
+async def predict(request: Request, image: UploadFile = File(...)):
+    print(f"🔍 Received method: {request.method}")
     try:
         contents = await image.read()
         img = Image.open(io.BytesIO(contents))

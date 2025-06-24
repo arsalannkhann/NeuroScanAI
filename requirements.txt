@@ -2,4 +2,5 @@ fastapi
 uvicorn
 gdown
 pillow
-tensorflow
+tensorflow-cpu
+python-multipart

@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+RUN gdown https://drive.google.com/uc?id=1aEc1Ni1mds5anu28giaiXkcM9_OOxV2y -O best_model.keras
 
 # Copy all source files in current directory to /app
 COPY . .
